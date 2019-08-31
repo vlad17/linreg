@@ -5,11 +5,11 @@
 set -e
 
 if [ "$1" = "--check" ] ; then
-    black --line-length 79 --py36 --verbose --check linreg
+    black --line-length 79  --verbose --check linreg
     sed -ns '${/./F}' **/*.{py,sh}
     isort -rc --diff .
 else
-    black --line-length 79 --py36 --verbose linreg
+    black --line-length 79  --verbose linreg
     sed -i -e '$a\' **/*.{py,sh}
     isort -rc --atomic .
 fi

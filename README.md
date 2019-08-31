@@ -30,7 +30,13 @@ All modules are expected to be run from the root directory of the repository
 
 ```
 python -m linreg.main.gendata --help
+python -m linreg.main.gendata --n 1000 --p 100 --snr 100 --out ./data/n1000p100snr100.npz
+
 python -m linreg.main.train --help
+python -m linreg.main.train --infile ./data/n1000p100snr100.npz --iters 100 --save_every_n 1 --noprecompute
+python -m linreg.main.train --infile ./data/n1000p100snr100.npz --iters 10 --save_every_n 1 --precompute
+
+
 python -m linreg.main.eval --help
 ```
 

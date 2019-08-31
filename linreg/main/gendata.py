@@ -19,6 +19,8 @@ flags.DEFINE_integer("n", 1000, "number of data points to create")
 
 flags.DEFINE_integer("p", 100, "number of (dense) features in each data point")
 
+flags.DEFINE_float("snr", 100, "inverse of noise magnitude")
+
 
 def _main(_argv):
     log.init()
@@ -29,7 +31,7 @@ def _main(_argv):
 
     X = np.random.randn(n, p)
     beta = np.random.randn(p)
-    y = X.dot(beta) + np.random.randn(n)
+    y = X.dot(beta) + np.random.randn(n) / flags.FLAGS.snr
 
     out = flags.FLAGS.out or f"./data/generated-{n}-{p}.npz"
     log.debug("writing out to {}", out)
