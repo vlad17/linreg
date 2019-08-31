@@ -20,7 +20,7 @@ Should be done once per session:
 conda activate linreg-env
 ```
 
-Use `conda env export > environment.yaml` to save new dependencies.
+Use `conda env export --no-builds > environment.yaml` to save new dependencies.
 
 To be done when dependencies update in the yaml file but your local environment is out of date, use `conda env update -f environment.yaml --prune`.
 
