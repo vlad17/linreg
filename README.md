@@ -22,9 +22,7 @@ conda activate linreg-env
 
 Use `conda env export > environment.yaml` to save new dependencies.
 
-To be done when dependencies update in the yaml file but your local environment is out of date.
-
-`conda env update -f local.yml --prune`
+To be done when dependencies update in the yaml file but your local environment is out of date, use `conda env update -f environment.yaml --prune`.
 
 ## Usage
 
