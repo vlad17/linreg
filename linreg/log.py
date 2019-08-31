@@ -81,6 +81,7 @@ def init():
     else:
         _LOGGER.setLevel(logging.INFO)
 
+
 def _prep_formatter():
     # Get the path name and line number of the function which called us.
     previous_frame = inspect.currentframe().f_back
@@ -92,15 +93,18 @@ def _prep_formatter():
     _FORMATTER.pathname = _clean_path(pathname)
     _FORMATTER.lineno = lineno
 
+
 def debug(s, *args):
     """debug(s, x1, ..., xn) logs s.format(x1, ..., xn)."""
     _prep_formatter()
     _LOGGER.debug(s.format(*args))
 
+
 def info(s, *args):
     """info(s, x1, ..., xn) logs s.format(x1, ..., xn)."""
     _prep_formatter()
     _LOGGER.info(s.format(*args))
+
 
 def _clean_path(path):
     """
