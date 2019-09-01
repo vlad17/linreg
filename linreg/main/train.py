@@ -112,7 +112,7 @@ def _main(_argv):
             sample = np.random.randint(n)
             grad = X[sample] * (X[sample].dot(beta) - y[sample])
             samples_seen += 1
-        beta -= grad * 0.01
+        beta -= grad * 0.001 * (10 if flags.FLAGS.precompute else 1)
 
         time_elapsed += time() - t
         beta_sum += beta

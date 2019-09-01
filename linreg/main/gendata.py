@@ -31,6 +31,7 @@ def _main(_argv):
 
     X = np.random.randn(n, p)
     beta = np.random.randn(p)
+    beta /= np.linalg.norm(beta)
     y = X.dot(beta) + np.random.randn(n) / flags.FLAGS.snr
 
     out = flags.FLAGS.out or f"./data/generated-{n}-{p}.npz"
